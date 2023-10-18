@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encode</title>
+  </head>
+  <body>
+    <p>
+      * encode ini berfungsi pada saat kita mengirim sebuah url ke web server agar aman . <br />
+      *aman bukan security , tetapi aman dalam bentuk url nya dan tidak berubah saat sampai di server
+    </p>
+    <script>
+      {
+        //* encode uri dan decode uri (mengembalikan nilai value ke encode)
+
+        const url = "http://contoh.com/?name=Made Aditya Putra";
+        console.log(url);
+
+        const encoded = encodeURI(url);
+        console.log(encoded);
+
+        const decoded = decodeURI(url);
+        console.log(decoded);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* encode URI Component dan decode Componen
+        //* karna ini mengubah semua symbol (?=%; dll), maka di perlukan memisah url nya dan value nya
+
+        const value = "Made=Aditya&Putra";
+        const url = "http://contoh.com/?name=";
+        console.log(url + value);
+
+        const encoded = encodeURIComponent(value);
+        console.log(url + encoded);
+
+        const decoded = decodeURIComponent(value);
+        console.log(url + decoded);
+      }
+    </script>
+  </body>
+</html>

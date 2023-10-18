@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reg Exp</title>
+  </head>
+  <body>
+    <script>
+      //* cara membuat reg exp bisa mengguankan 3 cara
+
+      //* const regexp1 = /[a]/
+      //* const regexp2 = new RegExp ("[a]")
+      //* const regexp2 = new RegExp (/[a]/)
+
+      {
+        //* membuat reg exp
+
+        const regexp1 = /made/;
+        const regexp2 = new RegExp("made");
+        const regexp3 = new RegExp(/made/);
+      }
+
+      {
+        //* test regex
+
+        const name = "made aditya made putra";
+        const regex = /made/;
+
+        //* mencari ada atau tidak ada
+        const test = regex.test(name);
+        console.log(test);
+
+        //* mencari dan mengeluarkan hasil
+        const result = regex.exec(name);
+        console.log(result);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* modifier di reg exp
+
+        // i => agar membuat tidak sensitif huruf besar dan huruf kecil
+        // g => untuk mencari secara global, seluruhnya
+        // m => mencari dengan multi line
+
+        const name = "made aditya\nputra Aditya\nPutra made ";
+
+        const regex1 = /putra/gi;
+        const regex2 = /aditya/gi;
+
+        let result;
+        while ((result = regex1.exec(name)) != null) {
+          console.log(result);
+        }
+
+        while ((result = regex2.exec(name)) != null) {
+          console.log(result);
+        }
+      }
+    </script>
+  </body>
+</html>

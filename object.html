@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      {
+        //* object.freeze dan Object.seal *//
+
+        //* Object.freeze => tidak bisa dirubah dan tidak bisa dihapus
+        //* Object.seal => bisa dirubah tapi tidak bisa di hapus
+        //* dan keduanya tidak bisa ditambahkan value
+
+        //* object biasa akan bisa dirubah
+        const person = {
+          firstName: "made",
+          lastName: "aditya",
+        };
+
+        person.firstName = "kadek";
+        delete person.lastName;
+
+        console.log(person);
+      }
+      {
+        //* Obeject.freeze
+        const person = {
+          firstName: "made",
+          lastName: "aditya",
+        };
+
+        Object.freeze(person);
+
+        person.firstName = "kadek";
+        delete person.lastName;
+
+        console.log(person);
+      }
+      {
+        //* Obeject.seal objectnyabisa dirubah tapi tidak bisa di hapus
+        const person = {
+          firstName: "made",
+          lastName: "aditya",
+        };
+
+        Object.seal(person);
+
+        person.firstName = "kadek";
+        delete person.lastName;
+
+        console.log(person);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* object assign *//
+
+        //* untuk manggabungkan bebrapa atribut dari satu object ke object yang lainnya
+        //* dengan menggunakan syntax Object.assign(taraget,source)
+
+        const name1 = {
+          firstName: "made",
+        };
+
+        const name2 = {
+          lastName: "putra",
+        };
+
+        const result = Object.assign(name1, name2);
+        console.log(result);
+        console.log(name1);
+        console.log(name2);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* object property name dan value *//
+        const person = {
+          firstName: "made",
+          lastName: "putra",
+        };
+
+        //* untuk mencari value dari object
+        console.log(Object.values(person));
+
+        //* untuk mencari property dari object
+        console.log(Object.getOwnPropertyNames(person));
+      }
+    </script>
+  </body>
+</html>

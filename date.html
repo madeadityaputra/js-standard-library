@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      {
+        //* waktu dan tanggal*//
+
+        //* new Date() => membduat tanggal saat ini juga
+        //* new Date(year, month, date) => membuat date dengan tanggal
+        //*new Date(year, month, date?, hour?, minute?, second?, milis?) => membuat date dengan params sampai milisecond
+        //* new Date (timestamp) => membuat date dari epoch atau unix timestamp
+
+        const date1 = new Date();
+        console.log(date1);
+
+        const date2 = new Date(2023, 10, 10);
+        console.log(date2);
+
+        //* di website ketik *current milis dan copy milisnya*
+        const date3 = new Date(1696988975941);
+        console.log(date3);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* unix timestamp *//
+
+        //* untuk mendapatkan waktu saat ini di dalam epoc dan time stamp, ta bisa menggunakan [Date.now()]
+        //* untuk mengubah object date menjadi epoch dan unix timestamp, kita bisa menggunakan function [getTime()]
+
+        //* tanggal dan waktu saat ini real time
+        const date1 = new Date();
+        console.log(date1.getTime());
+
+        console.log(Date.now()); //* resultnya sama seperti yang di atas
+
+        //* kita bisa tentukan tanggalnya besserta waktu saat itu
+        const date2 = new Date(2023, 10, 10);
+        console.log(date2.getTime());
+
+        //* di website ketik *current milis dan copy milisnya*
+        const date3 = new Date(1696988975941);
+        console.log(date3.getTime());
+
+        //* kode kode seperti di atas biasanya digunakaknk untuk mengirim waktu ke bahasa pemrograman yang lain , karna dia sudah uneversal
+      }
+
+      console.log("=======================================");
+
+      {
+        //* Date getter dan setter
+
+        const date = new Date();
+        console.log(date);
+
+        console.log(date.getFullYear());
+        console.log(date.getMonth());
+        console.log(date.getDate());
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        console.log(date.getMilliseconds());
+        console.log(date.getTimezoneOffset());
+      }
+    </script>
+  </body>
+</html>

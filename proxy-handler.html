@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>proxy handler</h3>
+    <p>
+      *pembuatan proxy memrlukan handler, dimana dalam handler , kita bisa membuat fucntion yang dinamakan interceptor yang digunakan ketika mengambil data atau mengubah data ke target <br />
+      *untuk membuat proxy kita bisa menggunakan new Proxy (target, handler)
+    </p>
+    <script>
+      {
+        //* cara membuat proxy handler
+
+        const target = {
+          middleName: "aditya",
+        };
+
+        const handler = {
+          get: function (target, property) {
+            return target[property];
+          },
+
+          set: function (target, property, value) {
+            target[property] = value;
+          },
+        };
+
+        const proxy = new Proxy(target, handler);
+        proxy.firstName = "made";
+        proxy.lastName = "putra";
+
+        console.log(proxy.firstName);
+        console.log(proxy.middleName);
+        console.log(proxy.lastName);
+        console.log(target);
+      }
+
+      console.log("=======================================");
+
+      {
+        //* membuat log handler
+
+        const target = {
+          middleName: "aditya",
+        };
+
+        const handler = {
+          //* saat mengambil data proxy , maka melalalui handler akan memanggil fungsi get
+          get: function (target, property) {
+            console.log(`Access property : ${property}`);
+            return target[property];
+          },
+
+          //* saat mengubah data proxy , maka melalui handler menggunakan fungsi set
+          set: function (target, property, value) {
+            console.log(`Change property ${property} : ${value}`);
+            target[property] = value;
+          },
+        };
+
+        const proxy = new Proxy(target, handler);
+        proxy.firstName = "made"; //* larinya ke set
+        proxy.lastName = "putra"; //* sama
+
+        console.log(proxy.firstName);
+        console.log(proxy.middleName); //* karna hanya mengambil data saja , maka larinya ke get
+        console.log(proxy.lastName);
+        console.log(target);
+      }
+    </script>
+  </body>
+</html>

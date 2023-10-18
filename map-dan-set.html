@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map</title>
+  </head>
+  <body>
+    <p>
+      <strong> kriteria Map sama dengan object, hanya saja pada map, semua method untuk memanipulasi data sudah di siapkan </strong>
+    </p>
+    <h3>object vs map</h3>
+
+    <!-- *TABLE PERBEDAAN OBJECT DAN MAP -->
+    <table border="1">
+      <thead>
+        <td>Map</td>
+        <td>Object</td>
+      </thead>
+      <tbody>
+        <td>pertama dibuat, tidak memiliki key</td>
+        <td>karena memilki prototype, bisa jadi saat dibuat sudah memiliki default key</td>
+      </tbody>
+      <tbody>
+        <td>key bisa tipe data apapun</td>
+        <td>key hanya bisa string atau symbol</td>
+      </tbody>
+      <tbody>
+        <td>jumlah key bisa di ketahui dengan mudah dengan attribu size</td>
+        <td>tidak bisa diketahui , harus manual menggunakan iterasi</td>
+      </tbody>
+      <tbody>
+        <td>secara default tidak bisa di konversi menjadi JSON</td>
+        <td>bisa di konversi menjadi JSON secara otomatis</td>
+      </tbody>
+    </table>
+
+    <!-- *JAVA SCRIPT -->
+    <script>
+      {
+        const map = new Map();
+        map.set("name", "made aditya putra");
+        map.set("alamat", "lampung tengah");
+
+        console.log(map);
+        console.log(map.get("name"));
+        console.log(map.get("alamat"));
+        console.log(map.get("hobby"));
+
+        map.forEach((value, key) => console.log(`${key} : ${value}`));
+      }
+
+      console.log("=======================================");
+
+      {
+        //* set
+
+        const set = new Set();
+
+        set.add("made");
+        set.add("made");
+        set.add("aditya");
+        set.add("putra");
+        console.log(set);
+
+        //* untuk iterasi menggunakan each
+        set.forEach((value) => console.log(value));
+      }
+    </script>
+  </body>
+</html>

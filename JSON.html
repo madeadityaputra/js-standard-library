@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <p>
+      *JSON singkatan dari java script object notation <br />
+      *dengan JSON kita bisa mengkonversi data dari string menjadi object dan sebaliknya <br />
+      *JSON.stringify() => konversi dari <strong>object ke stirng</strong> <br />
+      *JSON.parse () => konversi dari <strong>string ke object</strong>
+    </p>
+
+    <script>
+      const person = {
+        firstName: "made",
+        middleName: "aditya",
+        lastName: "putra",
+        addres: {
+          country: "indonesia",
+          city: "lampung",
+        },
+        hobby: ["bola", "badminton", "nonton film"],
+      };
+      console.log(person);
+
+      console.log("=======================================");
+
+      //* object ke string
+      const json = JSON.stringify(person);
+      console.log(json);
+
+      console.log("=======================================");
+
+      //* string ke object
+      const objectAgain = JSON.parse(json);
+      console.log(objectAgain);
+    </script>
+  </body>
+</html>
